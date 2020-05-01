@@ -6,7 +6,7 @@ function cardGen(arr) {
     const { Poster } = obj;
     const { Year } = obj;
     const { imdbID } = obj;
-    const url = `http://www.omdbapi.com/?apikey=3c196f1e&i=${imdbID}`;
+    const url = `https://www.omdbapi.com/?apikey=3c196f1e&i=${imdbID}`;
     // const getRat  = ()
 
 
