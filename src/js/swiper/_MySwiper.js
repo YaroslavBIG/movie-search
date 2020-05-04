@@ -8,23 +8,25 @@ function slidesPreload(len, real) {
     getMovieTitle(`${count}`, 'dream', len + 1);
     console.log(count);
   }
-  if (len > 10 && real > 10) {
-    console.log('real', real);
-    swiper.removeSlide([0, 1, 2, 3]);
-    console.log('real', real);
-  }
+  // if (len > 10 && real > 10) {
+  //   console.log('real', real);
+  //   swiper.removeSlide([0, 1, 2, 3]);
+  //   console.log('real', real);
+  // }
   if (count > 1 && real <= 2) {
     count -= 1;
     getMovieTitle(`${count}`, 'dream', 0);
-    if (len >= 20) {
-      const arr = [];
-      console.log('lenarr', len);
-      arr.fill(1, 0, len - 10);
-      arr.reduce((accumulator, currentValue) => accumulator + currentValue, 10);
-      console.log('arr', arr);
-      swiper.removeSlide(arr);
-    }
   }
+  // if (len >= 20 && real <= 2) {
+  //   const arr = Array.from(Array(len - 10), (_, x) => x + 10);
+
+  //   console.log('lenarr', len);
+  //   // arr.fill(1);
+  //   // const xxx = arr.reduce((accumulator, currentValue) => accumulator + currentValue, 10);
+  //   console.log('arr', arr);
+  //   swiper.removeSlide(arr);
+  //   console.log('lenafter', len);
+  // }
 }
 
 const swiper = new Swiper('.swiper-container', {
@@ -66,6 +68,8 @@ const swiper = new Swiper('.swiper-container', {
   pagination: {
     el: '.swiper-pagination',
     clickable: true,
+    dynamicBullets: true,
+    dynamicMainBullets: 10,
   },
 });
 
