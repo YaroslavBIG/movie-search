@@ -3,7 +3,7 @@ function cardGen(arr) {
 
   arr.forEach((obj) => {
     const { Title } = obj;
-    const { Poster } = obj;
+    const Poster = obj.Poster === 'N/A' ? './img/non_poster.png' : obj.Poster;
     const { Year } = obj;
     const { imdbID } = obj;
     const url = `https://www.omdbapi.com/?apikey=3c196f1e&i=${imdbID}`;

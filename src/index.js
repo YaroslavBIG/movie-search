@@ -1,5 +1,5 @@
 import swiper from './js/swiper/_MySwiper';
-import startSearch from './js/search/_searchButton';
+import { startSearch } from './js/search/_searchButton';
 import cardGen from './js/_cardsGen';
 import getMovieTitle from './js/_search';
 
