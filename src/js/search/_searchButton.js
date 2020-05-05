@@ -7,12 +7,13 @@ const inputSearch = document.querySelector('.search-input');
 const searchText = document.getElementById('search_text');
 
 function getSearchValue() {
-  if (inputSearch !== '') {
-    searchText.innerText = 'Search error';
+  if (inputSearch.value === '') {
+    searchText.classList.add('error_title');
+    // getMovieTitle('1', localStorage.getItem('search'));
   }
   if (!holderSearch.classList.contains('active')) {
-    console.log('22222222222222222222222222222');
     swiper.removeAllSlides();
+    searchText.classList.remove('error_title');
     getMovieTitle('1', inputSearch.value);
     return inputSearch.value;
   }
@@ -24,6 +25,7 @@ function enableSearch() {
 
 function startSearch() {
   buttonSearch.addEventListener('click', () => enableSearch());
+  document.body.addEventListener('click', (event) => (event.target.classList.contains('search-button') || event.target.classList.contains('search-input') ? false : holderSearch.classList.remove('active')));
 }
 
 export { startSearch, getSearchValue };

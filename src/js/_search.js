@@ -4,9 +4,10 @@ import cardGen from './_cardsGen';
 function setSearchText(value) {
   const searchText = document.getElementById('search_text');
   if (value) {
-    searchText.innerText = value.charAt(0).toUpperCase() + value.slice(1).toLowerCase();
+    searchText.innerText = `Showing results for: ${value.charAt(0).toUpperCase()}${value.slice(1).toLowerCase()}`;
+    searchText.classList.add('active_title');
   } else {
-    searchText.innerText = 'Movie Search';
+    searchText.innerText = `No results for: ${value.charAt(0).toUpperCase()}${value.slice(1).toLowerCase()}`;
   }
 }
 function getMovieTitle(page, word, pos = 0) {

@@ -9,3 +9,17 @@ a {
 main {
     min-height: calc(92vh - 50px);
 }
+
+.search_text {
+    text-align: center;
+    font-size: 25px;
+    height: 50px;
+}
+
+.active_title {
+    color: #2BADD8;
+}
+
+.error_title {
+    color: rgb(175, 9, 9);
+}

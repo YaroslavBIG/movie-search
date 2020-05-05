@@ -3,7 +3,7 @@ import getMovieTitle from '../_search';
 
 let count = 1;
 function slidesPreload(len, real) {
-  const currSearch = localStorage.getItem('search') || 'dream';
+  const currSearch = localStorage.getItem('search') || 'best';
 
   if (real >= len - 2 && len > 8) {
     count += 1;
@@ -33,7 +33,7 @@ const swiper = new Swiper('.swiper-container', {
 
     },
     click() {
-     
+
     },
     slideChange() {
       slidesPreload(swiper.slides.length, swiper.realIndex);

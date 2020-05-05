@@ -1,5 +1,8 @@
 footer {
-    width: 100%;
+    display: grid;
+    justify-content: left;
+    padding-left: 10px;
+    width: calc(100% - 10px);
     height: 50px;
     background-color: #140a0ad8;
     color: #fff;

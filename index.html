@@ -10,16 +10,17 @@
 
 <body>
   <header>
-    <span id='search_text'>Movie Search</span>
+    <div id="title" class="title">Movie Search</div>
   </header>
   <main>
     <div class="search-holder">
       <div class="circle"></div>
-      <div class="form">
-          <div class="search-button"></div>
-          <input type="text" class="search-input" placeholder="Type here to search ..." />
+      <div class="form" autocomplete="off">
+        <div class="search-button"></div>
+        <input type="text" class="search-input" placeholder="Type here to search ..." autocomplete="disabled" />
       </div>
-  </div>
+    </div>
+    <div id="search_text" class="search_text"></div>
     <div class="swiper-container">
       <div class="swiper-wrapper">
         <div class="swiper-slide">

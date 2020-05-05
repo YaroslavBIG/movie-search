@@ -39,14 +39,13 @@ function cardGen(arr) {
     function ratingGen(rat) {
       const ratingText = document.createElement('span');
       ratingText.classList.add('rating--text');
-      ratingText.innerText = rat;
+      ratingText.innerText = rat === 'N/A' ? 'no rating' : rat;
       rating.appendChild(ratingText);
       swiperSlide.appendChild(rating);
     }
     const ratingAA = () => fetch(url)
       .then((res) => res.json())
       .then((data) => data.imdbRating);
-
     ratingAA()
       .then((Value) => ratingGen(Value));
     const fragment = document.createDocumentFragment();
