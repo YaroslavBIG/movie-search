@@ -25,7 +25,7 @@ function enableSearch() {
 
 function startSearch() {
   buttonSearch.addEventListener('click', () => enableSearch());
-  document.body.addEventListener('click', (event) => (event.target.classList.contains('search-button') || event.target.classList.contains('search-input') ? false : holderSearch.classList.remove('active')));
+  document.body.addEventListener('click', (event) => (event.target.classList.contains('search-button') || event.target.classList.contains('search-input') || event.target.classList.contains('keyboard__key') ? false : holderSearch.classList.remove('active')));
 }
 
 export { startSearch, getSearchValue };
