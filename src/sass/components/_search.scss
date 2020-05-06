@@ -39,19 +39,6 @@
     &:hover {
         opacity: 0.5;
     }
-    &:active {
-        transition: ease-out 0.5s;
-        transform: rotateX(360deg);
-        -webkit-transform: rotateX(360deg);
-        -moz-transform: rotateX(360deg);
-        -ms-transform: rotateX(360deg);
-        -o-transform: rotateX(360deg);
-        -webkit-transition: ease-out 0.5s;
-        -moz-transition: ease-out 0.5s;
-        -ms-transition: ease-out 0.5s;
-        -o-transition: ease-out 0.5s;
-    }
-
 }
 
 .search-holder.active .search-button {
@@ -124,23 +111,19 @@
 .keyboard_icon {
     cursor: pointer;
     &:hover {
-        transition: ease-out 0.5s;
-        transform: rotateZ(360deg);
-        -webkit-transform: rotateZ(360deg);
-        -moz-transform: rotateZ(360deg);
-        -ms-transform: rotateZ(360deg);
-        -o-transform: rotateZ(360deg);
-        -webkit-transition: ease-out 0.5s;
-        -moz-transition: ease-out 0.5s;
-        -ms-transition: ease-out 0.5s;
-        -o-transition: ease-out 0.5s;
+        opacity: 0.7;
 }
 }
 
 .keyboard_icon--position {
     position: relative;
     top: 17px;
-    left: 45px;
+    right: -60px;
+    transition: right .5s;
+    -webkit-transition: right .5s;
+    -moz-transition: right .5s;
+    -ms-transition: right .5s;
+    -o-transition: right .5s;
 }
 
 .keyboard_icon--inactive {
@@ -173,4 +156,13 @@
     top: -13px;
     right: 0vw;
     text-align: center;
+    transition: right .5s;
+    -webkit-transition: right .5s;
+    -moz-transition: right .5s;
+    -ms-transition: right .5s;
+    -o-transition: right .5s;
+}
+
+.icon--hidden {
+    right: 1000px;
 }

@@ -24,6 +24,8 @@ function getSearchValue() {
 }
 function enableSearch() {
   holderSearch.classList.toggle('active');
+  activeKeyboardKey.classList.toggle('icon--hidden');
+  clearInputKey.classList.toggle('icon--hidden');
   getSearchValue();
 }
 
