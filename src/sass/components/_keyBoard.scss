@@ -11,19 +11,18 @@
 }
 
 .keyboard {
-    position: fixed;
-    left: 0;
-    bottom: 0;
+    position: relative;
+    top: 54%;
     width: 100%;
     padding: 10px 0;
     user-select: none;
     background-color: #a4a4a4;
     box-shadow: 0 0 50px rgba(0, 0, 0, 0.5);
-    transition: bottom 0.4s;
-    -webkit-transition: bottom 0.4s;
-    -moz-transition: bottom 0.4s;
-    -ms-transition: bottom 0.4s;
-    -o-transition: bottom 0.4s;
+    transition: top 0.8s;
+    -webkit-transition: top 0.8s;
+    -moz-transition: top 0.8s;
+    -ms-transition: top 0.8s;
+    -o-transition: top 0.8s;
 }
 
 .keybord--hidden {
@@ -102,4 +101,8 @@
 
 .keyboard__key--pressed {
     background: rgba(243, 77, 0, 0.39);
+}
+
+.keyboard--hidden {
+    top: 10%;
 }

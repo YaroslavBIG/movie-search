@@ -28,7 +28,6 @@ function createKeyIcons(iconName) {
 function createKeys() { // ---------------------- ADD CAPS STATUS????
   const fragment = document.createDocumentFragment();
   const keyLayout = [
-    'esc', 'F1', 'F2', 'F3', 'F4', 'F5', 'F6', 'F7', 'F8', 'F9', 'F10', 'F11', 'F12',
     '~', '1', '2', '3', '4', '5', '6', '7', '8', '9', '0', '-', '+', 'backspace',
     'tab', 'q', 'w', 'e', 'r', 't', 'y', 'u', 'i', 'o', 'p', '{', '}', '\\', 'del',
     'caps', 'a', 's', 'd', 'f', 'g', 'h', 'j', 'k', 'l', ':', '"', 'enter',
@@ -64,6 +63,8 @@ function createKeys() { // ---------------------- ADD CAPS STATUS????
     const keyEl = document.createElement('button');
     const insertLineBreak = ['F12', 'backspace', 'del', 'enter', 'rshift'].indexOf(key) !== -1;
     const addSlimClass = ['esc', 'F1', 'F2', 'F3', 'F4', 'F5', 'F6', 'F7', 'F8', 'F9', 'F10', 'F11', 'F12'];
+    const keyboard = document.querySelector('.keyboard');
+    const activeKeyboardKey = document.getElementById('activateKeyboard');
     keyEl.setAttribute('type', 'button');
     keyEl.classList.add('keyboard__key');
 
@@ -145,7 +146,8 @@ function createKeys() { // ---------------------- ADD CAPS STATUS????
         // keyEl.classList.add("keyboard__key--wide");
         keyEl.innerHTML = createKeyIcons('check_circle');
         keyEl.addEventListener('click', () => {
-          // ----------NEED TO ADD FOO!!!!
+          keyboard.classList.toggle('keyboard--hidden');
+          activeKeyboardKey.classList.toggle('keyboard_icon--inactive');
         });
         break;
 
