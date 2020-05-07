@@ -1,8 +1,9 @@
 import toggleCapsLock from './_toggleCapsLock';
+import { enableSearch } from '../search/_searchButton';
 import addKeybord from './_addKeybord';
 
-
 addKeybord();
+
 let capsLock;
 
 // Key is active?
@@ -15,7 +16,11 @@ function addText(text) {
   textArea.value += isActive(capsLock) ? `${text.toUpperCase()}` : `${text}`;
 }
 // Backspace
-const backspace = () => textArea.value = textArea.value.substring(0, textArea.value.length - 1);
+const backspace = () => {
+  const textAreaValue = textArea.value;
+  const textAreaLen = textAreaValue.length;
+  textArea.value = textAreaValue.substring(0, textAreaLen - 1);
+};
 
 // Clear text Area
 // const clearTextArea = () => textArea.value = '';
@@ -25,7 +30,7 @@ function createKeyIcons(iconName) {
   return `<i class="material-icons">${iconName}</i>`;
 }
 
-function createKeys() { // ---------------------- ADD CAPS STATUS????
+function createKeys() {
   const fragment = document.createDocumentFragment();
   const keyLayout = [
     '~', '1', '2', '3', '4', '5', '6', '7', '8', '9', '0', '-', '+', 'backspace',
@@ -99,7 +104,7 @@ function createKeys() { // ---------------------- ADD CAPS STATUS????
         keyEl.classList.add('keyboard__key--wide');
         keyEl.innerHTML = createKeyIcons('keyboard_return');
         keyEl.addEventListener('click', () => {
-          addText('\n');
+          enableSearch();
         });
         break;
 
@@ -172,9 +177,8 @@ function createKeys() { // ---------------------- ADD CAPS STATUS????
   });
   document.querySelector('.keyboard__keys').appendChild(fragment); // add object
 
-  return capsLock = document.querySelector('#caps_lock'); // -------------------- Fix IT!
+  capsLock = document.querySelector('#caps_lock');
 }
-createKeys();
 
 const keyboard = document.querySelector('.keyboard');
 const keys = keyboard.querySelectorAll('.keyboard__key');
@@ -219,3 +223,5 @@ document.addEventListener('keyup', (event) => {
     }
   });
 });
+
+export default createKeys;

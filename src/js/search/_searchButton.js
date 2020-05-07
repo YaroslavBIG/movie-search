@@ -29,11 +29,24 @@ function enableSearch() {
   getSearchValue();
 }
 
+
+function pressEnter(event) {
+  if (event.keyCode === 13 && holderSearch.classList.contains('active')) {
+    enableSearch();
+  }
+}
+
 function startSearch() {
   buttonSearch.addEventListener('click', () => enableSearch());
   activeKeyboardKey.addEventListener('click', () => activateKeyboard());
   clearInputKey.addEventListener('click', () => clearInput());
-  // document.body.addEventListener('click', (event) => (event.target.classList.contains('search-button') || event.target.classList.contains('search-input') || event.target.classList.contains('keyboard__key') ? false : holderSearch.classList.remove('active')));
+  document.querySelector('input').addEventListener('keydown', (event) => pressEnter(event));
+
+  // document.body.addEventListener('click', (event) =>
+  // (event.target.classList.contains('search-button')
+  // || event.target.classList.contains('search-input') ||
+  // event.target.classList.contains('keyboard__key') ?
+  // false : holderSearch.classList.remove('active')));
 }
 
-export { startSearch, getSearchValue };
+export { startSearch, getSearchValue, enableSearch };
