@@ -1,5 +1,3 @@
-/* eslint-disable no-unused-vars */
-const webpack = require('webpack');
 const path = require('path');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
@@ -22,12 +20,15 @@ module.exports = (env, options) => {
     module: {
       rules: [
         {
-          test: /\.js$/,
-          exclude: /node_modules/,
+          test: /\.(m?js|jsx)$/,
+          exclude: /(node_modules|bower_components)/,
           use: {
             loader: 'babel-loader',
             options: {
               presets: ['@babel/preset-env'],
+              plugins: [
+                ['@babel/transform-runtime'],
+              ],
             },
           },
         }, {
@@ -53,17 +54,16 @@ module.exports = (env, options) => {
     plugins: [
       new CopyPlugin([
         { from: 'src/img/', to: 'img/', toType: 'dir' },
-        { from: 'src/audio/', to: 'audio/', toType: 'dir' },
         { from: 'src/img/ico/', to: './', toType: 'dir' },
       ]),
       new MiniCssExtractPlugin({
         filename: 'style.css',
       }),
-      // new CleanWebpackPlugin({
-      //   // cleanStaleWebpackAssets: false,
-      //   // protectWebpackAssets: false,
-      //   cleanOnceBeforeBuildPatterns: ['**/*'],
-      // }),
+      new CleanWebpackPlugin({
+        cleanStaleWebpackAssets: false,
+        protectWebpackAssets: true,
+        cleanOnceBeforeBuildPatterns: ['**/*'],
+      }),
       new HtmlWebpackPlugin({
         template: 'index.html',
       }),

@@ -2,6 +2,7 @@ import getMovieTitle from '../_search';
 import swiper from '../swiper/_MySwiper';
 import activateKeyboard from '../keyboard/_activateKeyboard';
 import clearInput from './_clearInput';
+import { isCyrillic, translate } from './_translate';
 
 const buttonSearch = document.querySelector('.search-button');
 const holderSearch = document.querySelector('.search-holder');
@@ -10,7 +11,16 @@ const searchText = document.getElementById('search_text');
 const activeKeyboardKey = document.getElementById('activateKeyboard');
 const clearInputKey = document.getElementById('clear');
 
-function getSearchValue() {
+async function getSearchValue() {
+  if (isCyrillic(inputSearch.value)) {
+    const translData = await translate(inputSearch.value);
+    const { code } = translData;
+    const translWord = translData.text[0];
+    swiper.removeAllSlides();
+    searchText.classList.remove('error_title');
+    if (code === 200) getMovieTitle('1', translWord);
+    return inputSearch.value;
+  }
   if (inputSearch.value === '') {
     searchText.classList.add('error_title');
     // getMovieTitle('1', localStorage.getItem('search'));

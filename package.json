@@ -11,19 +11,24 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/YaroslavBIG/english-for-kids.git"
+    "url": "git+https://github.com/rolling-scopes-school/yaroslavbig-RS2020Q1.git"
   },
   "keywords": [],
   "author": "YaroslavBiG",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/YaroslavBIG/english-for-kids/issues"
+    "url": "https://github.com/rolling-scopes-school/yaroslavbig-RS2020Q1/issues"
   },
-  "homepage": "https://github.com/YaroslavBIG/english-for-kids#readme",
+  "homepage": "https://github.com/rolling-scopes-school/yaroslavbig-RS2020Q1#readme",
   "devDependencies": {
     "@babel/core": "^7.9.0",
+    "@babel/plugin-transform-runtime": "^7.9.6",
     "@babel/preset-env": "^7.9.5",
+    "@babel/preset-es2015": "^7.0.0-beta.53",
     "babel-loader": "^8.1.0",
+    "babel-plugin-transform-runtime": "^6.23.0",
+    "babel-preset-better-async-await": "^1.0.0",
+    "babel-regenerator-runtime": "^6.5.0",
     "clean-webpack-plugin": "^3.0.0",
     "copy-webpack-plugin": "^5.1.1",
     "css-loader": "^3.5.1",
@@ -40,12 +45,15 @@
     "html-loader": "^1.1.0",
     "html-webpack-plugin": "^4.2.0",
     "mini-css-extract-plugin": "^0.9.0",
-    "node-sass": "^4.13.1",
+    "node-sass": "^4.14.1",
     "sass": "^1.26.3",
     "sass-loader": "^8.0.2",
     "style-loader": "^1.1.3",
     "webpack": "^4.42.1",
     "webpack-cli": "^3.3.11"
   },
-  "dependencies": {}
+  "dependencies": {
+    "@babel/runtime": "^7.9.6",
+    "@babel/runtime-corejs2": "^7.0.0"
+  }
 }
