@@ -1,23 +1,7 @@
 import Swiper from './_SwiperFramework';
-import getMovieTitle from '../_search';
-
-let count = 1;
-function slidesPreload(len, real) {
-  const currSearch = localStorage.getItem('search') || 'best';
-
-  if (real >= len - 2 && len > 8) {
-    count += 1;
-    getMovieTitle(`${count}`, currSearch, len + 1);
-  }
-
-  if (count > 1 && real <= 2) {
-    count -= 1;
-    getMovieTitle(`${count}`, currSearch, 0);
-  }
-}
+import slidesPreload from './_slidesPreload';
 
 const swiper = new Swiper('.swiper-container', {
-  // slidesPerView: 3,
   spaceBetween: 30,
   effect: 'coverflow',
   grabCursor: false,

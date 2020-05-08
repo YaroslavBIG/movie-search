@@ -3,6 +3,7 @@ import swiper from '../swiper/_MySwiper';
 import activateKeyboard from '../keyboard/_activateKeyboard';
 import clearInput from './_clearInput';
 import { isCyrillic, translate } from './_translate';
+import { isValide, errorValue } from './_errorValue';
 
 const buttonSearch = document.querySelector('.search-button');
 const holderSearch = document.querySelector('.search-holder');
@@ -12,25 +13,25 @@ const activeKeyboardKey = document.getElementById('activateKeyboard');
 const clearInputKey = document.getElementById('clear');
 
 async function getSearchValue() {
-  if (isCyrillic(inputSearch.value)) {
-    const translData = await translate(inputSearch.value);
-    const { code } = translData;
-    const translWord = translData.text[0];
-    swiper.removeAllSlides();
-    searchText.classList.remove('error_title');
-    if (code === 200) getMovieTitle('1', translWord);
-    return inputSearch.value;
-  }
-  if (inputSearch.value === '') {
-    searchText.classList.add('error_title');
-    // getMovieTitle('1', localStorage.getItem('search'));
-  }
-  if (!holderSearch.classList.contains('active')) {
-    swiper.removeAllSlides();
-    searchText.classList.remove('error_title');
-    getMovieTitle('1', inputSearch.value);
-    return inputSearch.value;
-  }
+  if (isValide(inputSearch.value)) {
+    if (isCyrillic(inputSearch.value)) {
+      const translData = await translate(inputSearch.value);
+      const { code } = translData;
+      const translWord = translData.text[0];
+      swiper.removeAllSlides();
+      searchText.classList.remove('error_title');
+      if (code === 200) getMovieTitle('1', translWord);
+      return inputSearch.value;
+    }
+    if (!holderSearch.classList.contains('active')) {
+      swiper.removeAllSlides();
+      searchText.classList.remove('error_title');
+      getMovieTitle('1', inputSearch.value);
+      return inputSearch.value;
+    }
+  } else if (inputSearch.value === '' || inputSearch.value === ' ') {
+    return false;
+  } else errorValue(inputSearch.value);
 }
 function enableSearch() {
   holderSearch.classList.toggle('active');

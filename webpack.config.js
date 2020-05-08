@@ -61,7 +61,7 @@ module.exports = (env, options) => {
       }),
       new CleanWebpackPlugin({
         cleanStaleWebpackAssets: false,
-        protectWebpackAssets: true,
+        protectWebpackAssets: false,
         cleanOnceBeforeBuildPatterns: ['**/*'],
       }),
       new HtmlWebpackPlugin({
