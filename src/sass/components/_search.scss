@@ -17,7 +17,7 @@
 }
 
 .search-holder.active .circle{
-    clip-path: circle(88% at 50% -11%);
+    clip-path: circle(88% at 50% 0%);
     transition: clip-path .4s ease-in;
     -webkit-transition: clip-path .4s ease-in;
     -moz-transition: clip-path .4s ease-in;

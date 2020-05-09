@@ -7,11 +7,13 @@
 }
 
 .card__year {
+    color: $colorlink;
     
 }
 
 .card__rating {
     display: inline-table;
+    color: $colorlink;
     .rating--star {
         padding-right: 16px;
         font-size: 2.1em;

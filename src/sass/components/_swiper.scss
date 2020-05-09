@@ -30,3 +30,30 @@
     -webkit-align-items: center;
     align-items: center;
   }
+
+.swiper-slide-active {
+    background-color: $activeSlideBackground;
+    transition: background-color 2s linear;
+    -webkit-transition: background-color 2s linear;
+    -moz-transition: background-color 2s linear;
+    -ms-transition: background-color 2s linear;
+    -o-transition: background-color 2s linear;
+}
+
+.swiper-slide-next {
+    background-color: $nextSlideBackground;
+    transition: background-color 2s linear;
+    -webkit-transition: background-color 2s linear;
+    -moz-transition: background-color 2s linear;
+    -ms-transition: background-color 2s linear;
+    -o-transition: background-color 2s linear;
+}
+
+.swiper-slide-prev {
+    background-color: $prevSlideBackground;
+    transition: background-color 2s linear;
+    -webkit-transition: background-color 2s linear;
+    -moz-transition: background-color 2s linear;
+    -ms-transition: background-color 2s linear;
+    -o-transition: background-color 2s linear;
+}

@@ -4,12 +4,16 @@ body {
 
 a {
     text-decoration: none;
+    color: $colorlink;
+    line-height: 2;
 }
 
 main {
     min-height: calc(95vh - 50px - 3%);
     overflow-y: hidden;
-    margin-top: 3%;
+    padding-top: 3%;
+    background: rgb(20,10,10);
+    background: linear-gradient(210deg, rgba(20,10,10,1) 0%, rgba(11,126,166,1) 100%);
 }
 
 .search_text {
