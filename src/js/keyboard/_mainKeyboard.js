@@ -34,10 +34,10 @@ function createKeys() {
   const fragment = document.createDocumentFragment();
   const keyLayout = [
     '~', '1', '2', '3', '4', '5', '6', '7', '8', '9', '0', '-', '+', 'backspace',
-    'tab', 'q', 'w', 'e', 'r', 't', 'y', 'u', 'i', 'o', 'p', '{', '}', '\\', 'del',
+    'tab', 'q', 'w', 'e', 'r', 't', 'y', 'u', 'i', 'o', 'p', 'del',
     'caps', 'a', 's', 'd', 'f', 'g', 'h', 'j', 'k', 'l', ':', '"', 'enter',
-    'lshift', 'done', 'z', 'x', 'c', 'v', 'b', 'n', 'm', ',', '.', 'up', 'rshift',
-    'ctrl', 'win', 'alt', 'space', 'altgr', 'left', 'down', 'right', 'ctrl',
+    'done', 'z', 'x', 'c', 'v', 'b', 'n', 'm', ',', 'up', '.',
+    'space', 'altgr', 'left', 'down', 'right',
   ];
 
   const editCarretPos = (direction) => {
@@ -66,7 +66,7 @@ function createKeys() {
 
   keyLayout.forEach((key) => {
     const keyEl = document.createElement('button');
-    const insertLineBreak = ['F12', 'backspace', 'del', 'enter', 'rshift'].indexOf(key) !== -1;
+    const insertLineBreak = ['backspace', 'del', 'enter', '.'].indexOf(key) !== -1;
     const addSlimClass = ['esc', 'F1', 'F2', 'F3', 'F4', 'F5', 'F6', 'F7', 'F8', 'F9', 'F10', 'F11', 'F12'];
     const keyboard = document.querySelector('.keyboard');
     const activeKeyboardKey = document.getElementById('activateKeyboard');

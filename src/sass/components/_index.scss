@@ -16,6 +16,11 @@ main {
     background: linear-gradient(210deg, rgba(20,10,10,1) 0%, rgba(11,126,166,1) 100%);
 }
 
+.title {
+    font-size: 20px;
+    grid-area: none;
+}
+
 .search_text {
     text-align: center;
     font-size: 25px;

@@ -16,6 +16,7 @@ function getMovieTitle(page, word, pos = 0) {
   return fetch(url)
     .then((res) => res.json())
     .then((data) => {
+      if (Number(data.totalResults) === 0) return;
       localStorage.setItem('search', word);
       setSearchText(word);
       swiper.addSlide(`${pos}`, cardGen(data.Search));

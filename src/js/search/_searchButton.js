@@ -32,6 +32,7 @@ async function getSearchValue() {
     return false;
   } else errorValue(inputSearch.value);
 }
+
 function enableSearch() {
   const activeKeyboardKey = document.getElementById('activateKeyboard');
   const clearInputKey = document.getElementById('clear');
