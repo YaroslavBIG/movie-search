@@ -11,7 +11,16 @@
 }
 
 .card__rating {
-   
+    display: inline-table;
+    .rating--star {
+        padding-right: 16px;
+        font-size: 2.1em;
+    }
+    .rating--text {
+        font-size: 2em;
+        margin: auto;
+        vertical-align: text-bottom;
+    }
 }
 
 .card__text_name {
@@ -20,3 +29,4 @@
     overflow: hidden;
     text-overflow: ellipsis;
 }
+

@@ -180,10 +180,8 @@ function createKeys() {
   capsLock = document.querySelector('#caps_lock');
 }
 
-const keyboard = document.querySelector('.keyboard');
-const keys = keyboard.querySelectorAll('.keyboard__key');
-
 window.addEventListener('keydown', (event) => {
+  const keys = document.querySelectorAll('.keyboard__key');
   const currentKeyDown = event.key.toLocaleLowerCase();
   const currentKeyDownCode = event.code.toLocaleLowerCase();
   // console.log(currentKeyDownCode)
@@ -205,6 +203,7 @@ window.addEventListener('keydown', (event) => {
 });
 
 document.addEventListener('keyup', (event) => {
+  const keys = document.querySelectorAll('.keyboard__key');
   const currentKeyUp = event.key.toLocaleLowerCase();
   const currentKeyUpCode = event.code.toLocaleLowerCase();
   keys.forEach((el) => {

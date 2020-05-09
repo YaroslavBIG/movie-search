@@ -7,8 +7,6 @@ function cardGen(arr) {
     const { Year } = obj;
     const { imdbID } = obj;
     const url = `https://www.omdbapi.com/?apikey=3c196f1e&i=${imdbID}`;
-    // const getRat  = ()
-
 
     const swiperSlide = document.createElement('div');
     swiperSlide.classList.add('swiper-slide');
@@ -16,7 +14,7 @@ function cardGen(arr) {
     const movieName = document.createElement('div');
     movieName.classList.add('card__text_name');
     const ombd = document.createElement('a');
-    ombd.setAttribute('href', `https://www.imdb.com/title/${imdbID}`);
+    ombd.setAttribute('href', `https://www.imdb.com/title/${imdbID}/videogallery/`);
     ombd.innerText = Title;
     movieName.append(ombd);
     swiperSlide.appendChild(movieName);
@@ -24,6 +22,7 @@ function cardGen(arr) {
     const poster = document.createElement('img');
     poster.classList.add('card__img');
     poster.setAttribute('src', `${Poster}`);
+    poster.onerror = function errorImg() { this.src = './img/non_poster.png'; };
     swiperSlide.appendChild(poster);
 
     const year = document.createElement('div');
@@ -33,9 +32,11 @@ function cardGen(arr) {
 
     const rating = document.createElement('div');
     rating.classList.add('card__rating');
-    const star = document.createElement('span');
-    star.classList.add('rating--star');
+    const star = document.createElement('i');
+    star.classList.add('rating--star', 'material-icons', 'md-36');
+    star.innerText = 'star_border';
     rating.appendChild(star);
+
     function ratingGen(rat) {
       const ratingText = document.createElement('span');
       ratingText.classList.add('rating--text');
