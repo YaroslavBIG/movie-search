@@ -8,9 +8,9 @@
 [type="checkbox"]:checked + label {
     position: relative;
     margin: auto;
+    padding-top: 6px;
     padding-left: 32px;
     cursor: pointer;
-    margin-bottom: 5px;
     display: inline-block;
     font-size: 16px;
     color: #b8ffd7;
@@ -77,8 +77,8 @@ label:hover:before {
 }
 
 .filter_year {
-    position: absolute;
-    margin: 30px 600px;
+    position: relative;
+    margin: auto;
     width: 55px;
     border: 1px solid #0b7ea6;
     border-radius: 18%;
@@ -88,12 +88,16 @@ label:hover:before {
     -moz-transition: left 0.5s ease-out;
     -ms-transition: left 0.5s ease-out;
     -o-transition: left 0.5s ease-out;
+    &::-webkit-input-placeholder{
+        padding: 2px;
+    }
 }
 
+
 .year_label {
-    position: absolute;
+    position: relative;
+    margin: auto;
     left:0;
-    margin: 20px 660px;
     transition: left 0.5s ease-out;
     -webkit-transition: left 0.5s ease-out;
     -moz-transition: left 0.5s ease-out;

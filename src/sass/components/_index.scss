@@ -20,6 +20,9 @@ main {
     padding-top: 3%;
     background: rgb(20,10,10);
     background: linear-gradient(210deg, rgba(20,10,10,1) 0%, rgba(11,126,166,1) 100%);
+    @media screen and (max-width: 500px) {
+        min-height: calc(95vh - 25px - 3%);
+    }
 }
 
 .title {
@@ -31,6 +34,10 @@ main {
     text-align: center;
     font-size: 25px;
     height: 50px;
+    @media screen and (max-width: 500px) {
+        font-size: 17px;
+        height: 30px;
+    }
 }
 
 .active_title {

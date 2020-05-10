@@ -4,6 +4,10 @@
     max-width: 300px;
     max-height: 270px;
     margin: 0 auto;
+    @media screen and (max-width: 500px) {
+        max-width: 180px;
+        max-height: 190px;
+    }
 }
 
 .card__year {

@@ -16,6 +16,7 @@ function filterResultByYear(year) {
 
 function buttonClick() {
   const year = Number(inputYear.value);
+  if (year <= 1930 || year >= 2020) { return false; }
   filterResultByYear(year);
 }
 
