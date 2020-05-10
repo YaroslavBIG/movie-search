@@ -7,10 +7,15 @@ import { isValide, errorValue } from './_errorValue';
 
 const inputSearch = document.querySelector('.search-input');
 const searchText = document.getElementById('search_text');
+const buttonSearch = document.querySelector('.search-button');
+const activeKeyboardKey = document.getElementById('activateKeyboard');
+const clearInputKey = document.getElementById('clear');
+const holderSearch = document.querySelector('.search-holder');
+const textArea = document.querySelector('.input_board');
 
 async function getSearchValue() {
-  const holderSearch = document.querySelector('.search-holder');
-
+  localStorage.setItem('filter', 'false');
+  localStorage.removeItem('year');
   if (isValide(inputSearch.value)) {
     if (isCyrillic(inputSearch.value)) {
       const translData = await translate(inputSearch.value);
@@ -32,11 +37,6 @@ async function getSearchValue() {
 }
 
 function enableSearch() {
-  const activeKeyboardKey = document.getElementById('activateKeyboard');
-  const clearInputKey = document.getElementById('clear');
-  const holderSearch = document.querySelector('.search-holder');
-  const textArea = document.querySelector('.input_board');
-
   holderSearch.classList.toggle('active');
   activeKeyboardKey.classList.toggle('icon--hidden');
   clearInputKey.classList.toggle('icon--hidden');
@@ -46,51 +46,24 @@ function enableSearch() {
 
 
 function pressEnter(event) {
-  const holderSearch = document.querySelector('.search-holder');
-
   if (event.keyCode === 13 && holderSearch.classList.contains('active')) {
     enableSearch();
   }
 }
 
 function startSearch() {
-  const buttonSearch = document.querySelector('.search-button');
-  const activeKeyboardKey = document.getElementById('activateKeyboard');
-  const clearInputKey = document.getElementById('clear');
-  // const holderSearch = document.querySelector('.search-holder');
-  // const keyboard = document.querySelector('.keyboard');
-  // const keyboardKeys = document.querySelector('.keyboard__keys');
-  // const keyboardKey = document.querySelector('.keyboard__key');
-  // const circle = document.querySelector('.circle');
-
   buttonSearch.addEventListener('click', () => enableSearch());
   activeKeyboardKey.addEventListener('click', () => activateKeyboard());
   clearInputKey.addEventListener('click', () => clearInput());
   document.querySelector('input').addEventListener('keydown', (event) => pressEnter(event));
-
-  // const searchComponents = [
-  //   holderSearch,
-  //   buttonSearch,
-  //   activeKeyboardKey,
-  //   clearInputKey,
-  //   inputSearch,
-  //   keyboard,
-  //   keyboardKeys,
-  //   keyboardKey,
-  //   circle,
-  // ];
-
-  // document.addEventListener('click', (event) => {
-  //   console.log(event.target.parentNode);
-  //   if (searchComponents.indexOf(event.target) === -1) enableSearch('close');
-  //   return false;
-  // });
-
-  // document.body.addEventListener('click', (event) =>
-  // (event.target.classList.contains('search-button')
-  // || event.target.classList.contains('search-input') ||
-  // event.target.classList.contains('keyboard__key') ?
-  // false : holderSearch.classList.remove('active')));
+  document.addEventListener('click', (event) => {
+    if (event.target === holderSearch || holderSearch.contains(event.target)) {
+      return true;
+    }
+    holderSearch.classList.remove('active');
+    activeKeyboardKey.classList.add('icon--hidden');
+    clearInputKey.classList.add('icon--hidden');
+  });
 }
 
 export { startSearch, getSearchValue, enableSearch };

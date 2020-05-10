@@ -1,6 +1,6 @@
 import swiper from './swiper/_MySwiper';
 import cardGen from './_cardsGen';
-import { isCyrillic } from './search/_translate';
+import { isCyrillic } from './input/_translate';
 
 function setSearchText(value) {
   const searchText = document.getElementById('search_text');
@@ -18,7 +18,13 @@ function setSearchText(value) {
   }
 }
 function getMovieTitle(page, word, pos = 0, year = '', type = 'movie') {
-  const url = `https://www.omdbapi.com/?s=${word}&y=${year}&type=${type}&page=${page}&apikey=3c196f1e`;
+  const isFiltred = localStorage.getItem('filter');
+  let url = `https://www.omdbapi.com/?s=${word}&y=${year}&type=${type}&page=${page}&apikey=3c196f1e`;
+
+  if (isFiltred === 'true') {
+    const yearFilt = localStorage.getItem('year');
+    url = `https://www.omdbapi.com/?s=${word}&y=${yearFilt}&type=${type}&page=${page}&apikey=3c196f1e`;
+  }
 
   return fetch(url)
     .then((res) => (res.ok ? res.json() : Promise.reject(res)))

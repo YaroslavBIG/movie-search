@@ -27,14 +27,22 @@
           autocomplete="disabled" autofocus />
       </div>
     </div>
-    <div id="search_text" class="search_text"></div>
+    <div class="result_wrapper">
+      <div id="search_text" class="search_text"></div>
+      <div class="filter_wrapper">
+        <input type="checkbox" name="year" id="year"/>
+        <label for="year">Filter results by year</label>
+        <input type="number" min="1920" max="2021" name="filter" id="filter" class="filter_year filter--hidden" placeholder="Year" >
+        <label for="filter" class="year_label filter--hidden"><button type="submit">ok</button></label>
+      </div>
+    </div>
     <div class="swiper-container">
       <div class="swiper-wrapper">
         <div class="swiper-slide">
           <div class="spiner"><img src="./src/img/spiner.svg" alt="spiner"></div>
         </div>
       </div>
-      
+
       <div class="swiper-button-next"></div>
       <div class="swiper-button-prev"></div>
     </div>
