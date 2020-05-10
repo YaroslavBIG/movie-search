@@ -57,3 +57,18 @@
     -ms-transition: background-color 2s linear;
     -o-transition: background-color 2s linear;
 }
+
+.swiper-button-next, .swiper-button-prev {
+    color: $colorlink;
+}
+
+.spiner {
+    width: 100%;
+    height: 100%;
+    background-color: $activeSlideBackground;
+    img {
+        margin: 0 auto;
+        margin-top: 10%;
+    }
+}
+

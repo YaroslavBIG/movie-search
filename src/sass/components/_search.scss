@@ -81,7 +81,7 @@
 
 .form {
     display: flex;
-    flex-direction: column;
+    flex-direction: row-reverse;
     flex-wrap: wrap-reverse;
     position: relative;
     width: 60px;
@@ -117,9 +117,11 @@
 }
 
 .keyboard_icon--position {
+    display: flex;
     position: relative;
-    top: 17px;
-    right: -9%;
+    margin: auto;
+    // top: 17px;
+    // right: -9%;
     transition: right .5s;
     -webkit-transition: right .5s;
     -moz-transition: right .5s;
@@ -154,10 +156,12 @@
 
 
 .clear_icon--position {
+    display: flex;
     position: relative;
-    top: -13px;
+    margin: auto;
+    // top: -13px;
     right: 0vw;
-    text-align: center;
+    // text-align: center;
     transition: right .5s;
     -webkit-transition: right .5s;
     -moz-transition: right .5s;

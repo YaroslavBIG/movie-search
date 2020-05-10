@@ -5,12 +5,13 @@ const swiper = new Swiper('.swiper-container', {
   init: true,
   spaceBetween: 30,
   effect: 'coverflow',
+  simulateTouch: true,
   grabCursor: false,
   centeredSlides: true,
   updateOnWindowResize: true,
   autoHeight: true,
   preloadImages: true,
-  updateOnImagesReady: true,
+  updateOnImagesReady: false,
   slidesPerView: 3,
   initialSlide: 0,
   slidesPerColumnFill: 'column',
@@ -23,6 +24,15 @@ const swiper = new Swiper('.swiper-container', {
     },
     slideChange() {
       slidesPreload(swiper.slides.length, swiper.realIndex);
+    },
+    imagesReady() {
+      // const strCount = localStorage.getItem('strCount');
+      // if (swiper.realIndex >= swiper.slides.length - 2 && swiper.slides.length > 5) {
+      //   swiper.updateSlides();
+      // }
+      // if (swiper.realIndex <= 2 && strCount > 1) {
+      //   swiper.updateSlides();
+      // }
     },
   },
   breakpoints: {

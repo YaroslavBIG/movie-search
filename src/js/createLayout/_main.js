@@ -1,3 +1,5 @@
+import swiper from '../swiper/_MySwiper';
+
 function mainCreate() {
   const fragment = document.createDocumentFragment();
 
@@ -54,11 +56,9 @@ function mainCreate() {
   }());
 
   (function swiperCreate() {
-    const swiperContainer = document.createElement('div');
-    swiperContainer.classList.add('swiper-container');
+    const swiperContainer = swiper.$el;
 
-    const swiperWrapper = document.createElement('div');
-    swiperWrapper.classList.add('swiper-wrapper');
+    const swiperWrapper = swiper.$wrapperEl;
 
     swiperContainer.append(swiperWrapper);
 

@@ -10,8 +10,8 @@ function setSearchText(value) {
     searchText.innerText = `No results for: ${value.charAt(0).toUpperCase()}${value.slice(1).toLowerCase()}`;
   }
 }
-function getMovieTitle(page, word, pos = 0) {
-  const url = `https://www.omdbapi.com/?s=${word}&page=${page}&apikey=3c196f1e`;
+function getMovieTitle(page, word, pos = 0, year = '', type = 'movie') {
+  const url = `https://www.omdbapi.com/?s=${word}&y=${year}&type=${type}&page=${page}&apikey=3c196f1e`;
 
   return fetch(url)
     .then((res) => res.json())
@@ -20,8 +20,8 @@ function getMovieTitle(page, word, pos = 0) {
       localStorage.setItem('search', word);
       setSearchText(word);
       swiper.addSlide(`${pos}`, cardGen(data.Search));
-      swiper.update();
-      swiper.updateSlides();
+      // swiper.update();
+      // swiper.updateSlides();
     });
 }
 

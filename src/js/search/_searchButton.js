@@ -57,11 +57,34 @@ function startSearch() {
   const buttonSearch = document.querySelector('.search-button');
   const activeKeyboardKey = document.getElementById('activateKeyboard');
   const clearInputKey = document.getElementById('clear');
+  // const holderSearch = document.querySelector('.search-holder');
+  // const keyboard = document.querySelector('.keyboard');
+  // const keyboardKeys = document.querySelector('.keyboard__keys');
+  // const keyboardKey = document.querySelector('.keyboard__key');
+  // const circle = document.querySelector('.circle');
 
   buttonSearch.addEventListener('click', () => enableSearch());
   activeKeyboardKey.addEventListener('click', () => activateKeyboard());
   clearInputKey.addEventListener('click', () => clearInput());
   document.querySelector('input').addEventListener('keydown', (event) => pressEnter(event));
+
+  // const searchComponents = [
+  //   holderSearch,
+  //   buttonSearch,
+  //   activeKeyboardKey,
+  //   clearInputKey,
+  //   inputSearch,
+  //   keyboard,
+  //   keyboardKeys,
+  //   keyboardKey,
+  //   circle,
+  // ];
+
+  // document.addEventListener('click', (event) => {
+  //   console.log(event.target.parentNode);
+  //   if (searchComponents.indexOf(event.target) === -1) enableSearch('close');
+  //   return false;
+  // });
 
   // document.body.addEventListener('click', (event) =>
   // (event.target.classList.contains('search-button')

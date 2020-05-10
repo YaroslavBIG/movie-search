@@ -61,9 +61,9 @@ module.exports = (env, options) => {
         filename: 'style.css',
       }),
       new CleanWebpackPlugin({
-        cleanStaleWebpackAssets: false,
-        protectWebpackAssets: false,
         cleanOnceBeforeBuildPatterns: ['**/*'],
+        cleanStaleWebpackAssets: false,
+        protectWebpackAssets: true,
       }),
       new HtmlWebpackPlugin({
         template: 'index.html',
