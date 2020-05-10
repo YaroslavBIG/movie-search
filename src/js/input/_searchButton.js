@@ -57,7 +57,7 @@ function startSearch() {
   clearInputKey.addEventListener('click', () => clearInput());
   document.querySelector('input').addEventListener('keydown', (event) => pressEnter(event));
   document.addEventListener('click', (event) => {
-    if (event.target === holderSearch || holderSearch.contains(event.target)) {
+    if (event.target === holderSearch || holderSearch.contains(event.target) || event.target.parentNode.classList.contains('keyboard__key')) {
       return true;
     }
     holderSearch.classList.remove('active');
