@@ -1,28 +1,38 @@
 import swiper from './swiper/_MySwiper';
 import cardGen from './_cardsGen';
+import { isCyrillic } from './search/_translate';
 
 function setSearchText(value) {
   const searchText = document.getElementById('search_text');
+  const searchValue = document.querySelector('.search-input').value;
   if (value) {
     searchText.innerText = `Showing results for: ${value.charAt(0).toUpperCase()}${value.slice(1).toLowerCase()}`;
     searchText.classList.add('active_title');
   } else {
-    searchText.innerText = `No results for: ${value.charAt(0).toUpperCase()}${value.slice(1).toLowerCase()}`;
+    if (isCyrillic(searchValue)) {
+      const tarnsl = localStorage.getItem('transl');
+      searchText.innerText = `No results for: ${tarnsl}`;
+      return false;
+    }
+    searchText.innerText = `No results for: ${searchValue}`;
   }
 }
 function getMovieTitle(page, word, pos = 0, year = '', type = 'movie') {
   const url = `https://www.omdbapi.com/?s=${word}&y=${year}&type=${type}&page=${page}&apikey=3c196f1e`;
 
   return fetch(url)
-    .then((res) => res.json())
+    .then((res) => (res.ok ? res.json() : Promise.reject(res)))
     .then((data) => {
-      if (Number(data.totalResults) === 0) return;
-      localStorage.setItem('search', word);
+      const prevSearch = localStorage.getItem('search');
+      const currSearch = word;
+      if (typeof data.Search === 'undefined') return setSearchText(false);
+      if (prevSearch !== currSearch) {
+        localStorage.setItem('search', word);
+        swiper.removeAllSlides();
+      }
       setSearchText(word);
       swiper.addSlide(`${pos}`, cardGen(data.Search));
-      // swiper.update();
-      // swiper.updateSlides();
     });
 }
 
-export default getMovieTitle;
+export { getMovieTitle, setSearchText };

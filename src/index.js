@@ -3,7 +3,7 @@
 // import footerCreate from './js/createLayout/_footer';
 import { startSearch } from './js/search/_searchButton';
 import swiper from './js/swiper/_MySwiper';
-import getMovieTitle from './js/_search';
+import { getMovieTitle } from './js/_search';
 import createKeys from './js/keyboard/_mainKeyboard';
 
 // headerCreate();

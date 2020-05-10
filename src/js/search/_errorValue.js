@@ -4,7 +4,7 @@ function isValide(text) {
   return result;
 }
 
-function errorValue(text, errorText = 'No results for:') {
+function errorValue(text, errorText = 'Invalid request:') {
   function getResStatus(page, word) {
     const url = `https://www.omdbapi.com/?s=${word}&page=${page}&apikey=3c196f1e`;
     return fetch(url)

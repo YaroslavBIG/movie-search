@@ -1,6 +1,7 @@
 function cardGen(arr) {
   const cards = document.createDocumentFragment();
-  if (arr.length !== 0) {
+
+  if (arr) {
     arr.forEach((obj) => {
       const { Title } = obj;
       const Poster = obj.Poster === 'N/A' ? './img/non_poster.png' : obj.Poster;
@@ -55,6 +56,7 @@ function cardGen(arr) {
       cards.append(fragment);
     });
   }
+
   return cards;
 }
 
