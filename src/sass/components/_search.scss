@@ -26,6 +26,7 @@
 }
 
 .search-button{
+    flex: none;
     box-shadow: 0 0 10px 2px rgba(0, 0, 0, 0.28);
     width: 60px;
     height: 60px;
@@ -67,7 +68,8 @@
 }
 
 .search-input::-webkit-input-placeholder {
-    color:#2BADD8
+    color:#2BADD8;
+    margin: auto;
 }
 
 .search-holder.active .search-input{
@@ -83,6 +85,7 @@
     display: flex;
     flex-direction: row-reverse;
     flex-wrap: wrap-reverse;
+    flex-flow: row-reverse;
     position: relative;
     width: 60px;
     height: 60px;
@@ -101,6 +104,10 @@
     -moz-transition: width .4s ease, background-color .4s ease;
     -ms-transition: width .4s ease, background-color .4s ease;
     -o-transition: width .4s ease, background-color .4s ease;
+    @media screen and (max-width: 500px) {
+        width: 100%;
+    }
+    
 }
 
 .material-icons.blue { 
@@ -120,13 +127,15 @@
     display: flex;
     position: relative;
     margin: auto;
-    // top: 17px;
-    // right: -9%;
+    right: 0;
     transition: right .5s;
     -webkit-transition: right .5s;
     -moz-transition: right .5s;
     -ms-transition: right .5s;
     -o-transition: right .5s;
+    @media screen and (max-width: 900px) {
+        display: none;
+    }
 }
 
 .keyboard_icon--inactive {
@@ -134,7 +143,7 @@
 }
 
 .clear_icon {
-    width: 20px;
+    width: 10px;
     cursor: pointer;
     opacity: 0.5;
     transition: ease-in-out 0.5s;
@@ -159,9 +168,7 @@
     display: flex;
     position: relative;
     margin: auto;
-    // top: -13px;
-    right: 0vw;
-    // text-align: center;
+    right: 0;
     transition: right .5s;
     -webkit-transition: right .5s;
     -moz-transition: right .5s;
