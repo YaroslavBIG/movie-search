@@ -9,13 +9,15 @@
         max-height: 190px;
     }
     @media screen and (max-height: 700px) {
-        max-height: 217px;
+        max-height: 240px;
     }
 }
 
 .card__year {
     color: $colorlink;
-    
+    @media screen and (max-width: 500px) {
+        font-size: 16px;
+    }
 }
 
 .card__rating {
@@ -30,6 +32,9 @@
         font-size: 2em;
         margin: auto;
         vertical-align: text-bottom;
+    }
+    @media screen and (max-width: 500px) {
+        font-size: 11px;
     }
 }
 
