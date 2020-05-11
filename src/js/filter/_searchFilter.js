@@ -3,7 +3,7 @@ import swiper from '../swiper/_MySwiper';
 
 const checkBox = document.getElementById('year');
 const inputYear = document.getElementById('filter');
-const button = document.querySelector('button');
+const button = document.getElementById('filterButton');
 const yearLabel = document.querySelector('.year_label');
 
 function filterResultByYear(year) {
