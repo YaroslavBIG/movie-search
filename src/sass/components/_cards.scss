@@ -6,10 +6,10 @@
     margin: 0 auto;
     @media screen and (max-width: 500px) {
         max-width: 180px;
-        max-height: 240px;
+        max-height: 210px;
     }
     @media screen and (max-height: 700px) {
-        max-height: 240px;
+        max-height: 230px;
     }
 }
 
@@ -29,9 +29,9 @@
         color: $ratingStar;
     }
     .rating--text {
-        font-size: 2em;
+        font-size: 30px;
         margin: auto;
-        vertical-align: text-bottom;
+        vertical-align: super;
     }
     @media screen and (max-width: 500px) {
         font-size: 11px;

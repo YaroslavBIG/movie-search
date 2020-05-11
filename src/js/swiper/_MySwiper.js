@@ -9,7 +9,7 @@ const swiper = new Swiper('.swiper-container', {
   touchRatio: 1,
   followFinger: true,
   iOSEdgeSwipeDetection: true,
-  grabCursor: false,
+  grabCursor: true,
   centeredSlides: true,
   updateOnWindowResize: true,
   autoHeight: true,

@@ -1,5 +1,5 @@
 footer {
-    display: grid;
+    grid-area: footer;
     justify-content: left;
     padding-left: 10px;
     width: calc(100% - 10px);
@@ -12,9 +12,5 @@ footer {
         @media screen and (max-width: 500px) {
             font-size: 10px;
         }
-    }
-
-    @media screen and (max-width: 500px) {
-        max-height: 25px;
     }
 }
