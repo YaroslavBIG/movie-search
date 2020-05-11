@@ -1,6 +1,6 @@
 html, body {
     position: relative;
-  }
+}
   
 body {
     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
@@ -10,6 +10,11 @@ body {
     user-select: none;
     overflow-y: hidden;
     background-color: $headerFooterBackground;
+    height: 100%;
+    @media screen and (max-width: 748px) {
+        overflow-y: auto;
+        overflow-x: hidden;
+    }
 }
 
 a {
@@ -27,6 +32,7 @@ main {
     background: linear-gradient(210deg, rgba(20,10,10,1) 0%, rgba(11,126,166,1) 100%);
     @media screen and (max-width: 500px) {
         overflow-y: auto;
+        overflow-x: hidden;
         min-height: calc(100vh - 30px - 25px - 3%);
     }
 }
