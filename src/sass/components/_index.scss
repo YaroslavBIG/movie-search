@@ -8,12 +8,12 @@ body {
     margin: 0;
     padding: 0;
     user-select: none;
-    overflow-y: hidden;
+    overflow: hidden;
     background-color: $headerFooterBackground;
     height: 100%;
-    @media screen and (max-width: 748px) {
-        overflow-y: auto;
+    @media screen and (max-width: 769px) {
         overflow-x: hidden;
+        overflow-y: auto;
     }
 }
 
