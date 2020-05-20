@@ -1,13 +1,16 @@
+import ratingReq from '../api/ratingReq';
+
 function cardGen(arr) {
   const cards = document.createDocumentFragment();
 
   if (arr) {
     arr.forEach((obj) => {
+      const none = 'N/A';
       const { Title } = obj;
-      const Poster = obj.Poster === 'N/A' ? './img/non_poster.png' : obj.Poster;
+      const posterImg = obj.Poster === none ? './img/non_poster.png' : obj.Poster;
       const { Year } = obj;
       const { imdbID } = obj;
-      const url = `https://www.omdbapi.com/?apikey=3c196f1e&i=${imdbID}`;
+      const videoGalery = `https://www.imdb.com/title/${imdbID}/videogallery/`;
 
       const swiperSlide = document.createElement('div');
       swiperSlide.classList.add('swiper-slide');
@@ -15,7 +18,7 @@ function cardGen(arr) {
       const movieName = document.createElement('div');
       movieName.classList.add('card__text_name');
       const ombd = document.createElement('a');
-      ombd.setAttribute('href', `https://www.imdb.com/title/${imdbID}/videogallery/`);
+      ombd.setAttribute('href', videoGalery);
       ombd.innerText = Title;
       movieName.append(ombd);
       swiperSlide.appendChild(movieName);
@@ -24,7 +27,7 @@ function cardGen(arr) {
       poster.classList.add('card__img');
       poster.setAttribute('src', './img/spiner.svg');
       poster.onerror = function errorImg() { this.src = './img/non_poster.png'; };
-      poster.onload = function setImg() { this.src = `${Poster}`; };
+      poster.onload = function setImg() { this.src = `${posterImg}`; };
       swiperSlide.appendChild(poster);
 
       const year = document.createElement('div');
@@ -40,15 +43,14 @@ function cardGen(arr) {
       rating.appendChild(star);
 
       function ratingGen(rat) {
+        const ratingNone = 'no rating';
         const ratingText = document.createElement('span');
         ratingText.classList.add('rating--text');
-        ratingText.innerText = rat === 'N/A' ? 'no rating' : rat;
+        ratingText.innerText = rat === none ? ratingNone : rat;
         rating.appendChild(ratingText);
         swiperSlide.appendChild(rating);
       }
-      const ratingAA = () => fetch(url)
-        .then((res) => res.json())
-        .then((data) => data.imdbRating);
+      const ratingAA = ratingReq(imdbID);
       ratingAA()
         .then((Value) => ratingGen(Value));
       const fragment = document.createDocumentFragment();

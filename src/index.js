@@ -1,6 +1,6 @@
-import { startSearch } from './js/input/_searchButton';
+import startSearch from './js/input/_searchButton';
 import swiper from './js/swiper/_MySwiper';
-import { getMovieTitle } from './js/_search';
+import getMovieTitle from './js/api/getMovieTitle';
 import createKeys from './js/keyboard/_mainKeyboard';
 import startFilterEvents from './js/filter/_searchFilter';
 

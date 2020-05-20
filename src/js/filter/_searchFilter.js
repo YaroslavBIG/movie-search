@@ -1,4 +1,4 @@
-import { getMovieTitle } from '../_search';
+import getMovieTitle from '../api/getMovieTitle';
 import swiper from '../swiper/_MySwiper';
 
 const checkBox = document.getElementById('year');

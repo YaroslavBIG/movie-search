@@ -1,4 +1,4 @@
-import { getMovieTitle } from '../_search';
+import getMovieTitle from '../api/getMovieTitle';
 
 let count = 1;
 function slidesPreload(len, real) {

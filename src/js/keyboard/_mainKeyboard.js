@@ -1,5 +1,5 @@
 import toggleCapsLock from './_toggleCapsLock';
-import { enableSearch } from '../input/_searchButton';
+import enableSearch from "../input/enableSearch";
 import addKeybord from './_addKeybord';
 
 addKeybord();
